@@ -44,13 +44,13 @@ app.post('/api/recomendaciones', async (req, res) => {
 
 // Conectar a MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('✅ Conectado a MongoDB Atlas'))
-    .catch((err) => console.error('❌ Error al conectar a MongoDB:', err));
-
-// Usar la ruta de películas
-app.use('/api/peliculas', peliculasRouter);
-// (Tu ruta de /api/recomendaciones puede ir aquí también)
-
-app.listen(PORT, () => {
-    console.log(`🚀 Backend corriendo en http://localhost:${PORT}`);
-});
+    .then(() => {console.log('✅ Conectado a MongoDB Atlas');
+    // Usar la ruta de películas
+    app.use('/api/peliculas', peliculasRouter);
+    app.listen(PORT, () => {
+        console.log(`🚀 Backend corriendo en http://localhost:${PORT}`);
+    });
+})
+    .catch((err) => {
+        console.error('❌ Error al conectar a MongoDB:', err);
+    });
