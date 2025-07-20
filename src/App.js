@@ -8,7 +8,7 @@ function App() {
   const [recomendacion, setRecomendacion] = useState('');
 
   useEffect(() => {
-    fetch('https://recomendaciones-backend.onrender.com/api/peliculas')
+    fetch('https://recomendaciones-backend-axu.onrender.com/api/peliculas')
       .then(res => res.json())
       .then(data => {
         setPeliculas(data);
