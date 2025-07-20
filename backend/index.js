@@ -1,15 +1,22 @@
 const express = require('express');
-const router = express.Router();
+//const router = express.Router();
 const axios = require('axios');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const peliculasRouter = require('./routers/peliculas');
 require('dotenv').config();
-module.exports = router;
+
+//module.exports = router;
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-const PORT = 4000;
+
+const PORT = process.env.PORT || 4000;
+
+app.get('/', (req, res) => {
+  res.send('Backend funcionando correctamente ✅');
+});
 
 app.post('/api/recomendaciones', async (req, res) => {
     const { prompt } = req.body;
