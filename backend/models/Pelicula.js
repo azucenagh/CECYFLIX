@@ -7,4 +7,4 @@ const peliculaSchema = new mongoose.Schema({
     poster: String
 }, { collection: 'peliculas' });
 // Exportamos el modelo para usarlo en otras partes del backend
-module.exports = mongoose.model('Pelicula', peliculaSchema,'peliculas');
+module.exports = mongoose.model('Pelicula', peliculaSchema);
